@@ -40,6 +40,20 @@ func main() {
 	// Pluralize word if more than one
 	pluralizedWord := pluralize(users, "user")
 	fmt.Printf("Searching %s: %s\n", pluralizedWord, users)
+
+	// "for... range" loop in GO allows us to iterate over each element of the array.
+	// "range" keyword can return the index of the element (e.g. 0, 1, 2, 3 ...etc)
+	// and it can return the actual value of the element.
+	// Since GO does not allow unused variables, we use the "_" character to tell GO we don't care about the index, but
+	// we want to get the actual user we're looping over to pass to the function.
+	for _, u := range users {
+		result := getUsers(u)
+		fmt.Println(`Username:	`, result.Login)
+		fmt.Println(`Name:		`, result.Name)
+		fmt.Println(`Email:		`, result.Email)
+		fmt.Println(`Bio:		`, result.Bio)
+		fmt.Println("")
+	}
 }
 
 func init() {
